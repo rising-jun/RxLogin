@@ -8,4 +8,7 @@ target 'RxLogin' do
   # Pods for RxLogin
   pod 'RxSwift'
   pod 'SnapKit'
+  pod 'RxCocoa'
+  pod 'RxGesture'
+  pod 'RxViewController'
 end
