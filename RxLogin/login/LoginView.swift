@@ -79,5 +79,16 @@ class LoginView: BaseView{
     
     }
     
+    override func emptyTextUI(textFiled: UITextField, noticeLabel: UILabel, button: UIButton) {
+        super.emptyTextUI(textFiled: textFiled, noticeLabel: noticeLabel, button: button)
+    }
+    
+    override func availableUI(textFiled: UITextField, noticeLabel: UILabel, button: UIButton) {
+        super.availableUI(textFiled: textFiled, noticeLabel: noticeLabel, button: button)
+    }
+    
+    override func unavailableUI(textFiled: UITextField, noticeLabel: UILabel, button: UIButton) {
+        super.unavailableUI(textFiled: textFiled, noticeLabel: noticeLabel, button: button)
+    }
     
 }

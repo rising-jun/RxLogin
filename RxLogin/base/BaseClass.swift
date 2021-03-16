@@ -22,6 +22,31 @@ class BaseView: UIView{
     func setup() {
         backgroundColor = .black
     }
+    
+    public func emptyTextUI(textFiled: UITextField,noticeLabel: UILabel, button: UIButton){
+        textFiled.layer.borderColor = UIColor.gray.cgColor
+        noticeLabel.text = ""
+        textFiled.reomoveErrorImg()
+        button.backgroundColor = .gray
+        button.isEnabled = false
+    }
+    
+    public func availableUI(textFiled: UITextField,noticeLabel: UILabel, button: UIButton){
+        button.isEnabled = true
+        textFiled.layer.borderColor = UIColor.gray.cgColor
+        noticeLabel.text = ""
+        textFiled.reomoveErrorImg()
+        button.backgroundColor = .orange
+        
+    }
+    
+    public func unavailableUI(textFiled: UITextField,noticeLabel: UILabel, button: UIButton){
+        textFiled.layer.borderColor = UIColor.red.cgColor
+        noticeLabel.text = "올바른 형식으로 입력해주세요."
+        textFiled.createBorder()
+        button.backgroundColor = .gray
+        button.isEnabled = false
+    }
 }
 
 class BaseViewController: UIViewController {
@@ -29,19 +54,21 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        bind()
+        bindViewModel()
     }
     
     public func setup() {
         
     }
     
-    public func bind() {
+    public func bindViewModel() {
         
     }
+    
 }
 
 extension UIView {
+    
     func addSubViews(_ views: UIView...) {
         for view in views {
             addSubview(view)
@@ -79,4 +106,11 @@ extension UITextField{
         self.rightView = rightView
         self.rightViewMode = .always
     }
+}
+
+
+enum TextInputState{
+    case empty
+    case usable
+    case unusable
 }
