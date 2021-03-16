@@ -8,14 +8,16 @@
 import UIKit
 import RxSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
+    
+    lazy var loginView = LoginView(frame: view.frame)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .blue
+        view = loginView
+        
     }
-
 
 }
 
